@@ -1,79 +1,125 @@
 import React from 'react';
 
+// --- Decorative Line Components ---
+// These ensure the lines never touch the edges or intersect.
+// The mx-6 and my-6 create the "disconnected" gaps.
+const HorizontalLine = () => (
+    <div className="h-[0.2px] w-full px-6 py-0">
+        <div className="h-full w-full bg-zinc-500/50" />
+    </div>
+);
+
+const SplitHorizontalLine = () => (
+    <div className="flex items-center gap-8 px-6 w-full h-[0.2px]">
+        <div className="h-full flex-1 bg-zinc-500/50" />
+        <div className="h-full flex-1 bg-zinc-500/50" />
+    </div>
+);
+
+const VerticalLine = () => (
+    <div className="w-[0.2px] h-full py-6">
+        <div className="w-full h-full bg-zinc-500/50" />
+    </div>
+);
+
 export default function Hero() {
     return (
-        // Replaced fixed 1920x2013 dimensions with full width and responsive minimum height
-        <div className="min-h-screen w-full bg-zinc-900 text-white selection:bg-neutral-700">
+        <div className="min-h-screen w-full bg-zinc-900 text-white overflow-hidden py-8">
+            {/* Main Wrapper Container */}
+            <div className="relative max-w-6xl mx-auto min-h-screen flex flex-col">
 
-            {/* Navigation Layer */}
-            <header className="flex items-center justify-between px-6 py-6 max-w-[1400px] mx-auto border-b border-neutral-600/40">
-                <nav className="hidden md:flex items-center gap-15 bg-zinc-100/30 px-20 py-3 rounded-full">
-                    <a href="#offerings" className="text-base font-medium hover:text-stone-300 transition-colors">Offerings</a>
-                    <a href="#about" className="text-base font-medium hover:text-stone-300 transition-colors">About</a>
-                    <a href="#blog" className="text-base font-medium hover:text-stone-300 transition-colors px-5">Blog</a>
-                </nav>
+                {/* The Outer Disconnected Vertical Lines */}
+                {/* top-8 and bottom-8 ensure they don't touch the top/bottom of the screen */}
+                <div className="absolute left-0 top-0 bottom-0 w-[0.2px] bg-zinc-500/50" aria-hidden="true" />
+                <div className="absolute right-0 top-0 bottom-0 w-[0.2px] bg-zinc-500/50" aria-hidden="true" />
 
-                <div className="flex items-center gap-6 ml-auto">
-                    <button className="text-base font-medium hover:text-stone-300 transition-colors">Log In</button>
-                    <button className="bg-zinc-100/30 px-6 py-3 rounded-full text-base font-medium">
-                        Join Titan
-                    </button>
-                </div>
-            </header>
+                {/* --- NAVBAR --- */}
+                <header className="flex items-center justify-between px-12 py-6 h-15">
+                    <nav className="hidden md:flex items-center justify-center gap-15 bg-neutral-500 rounded-[30px] px-10 py-2 mb-6">
+                        <a href="#offerings" className="text-sm font-medium hover:text-stone-300">Offerings</a>
+                        <a href="#about" className="text-sm font-medium hover:text-stone-300">About</a>
+                        <a href="#blog" className="text-sm font-medium hover:text-stone-300">Blog</a>
+                    </nav>
+                    <div className="flex items-center gap-8 ml-auto mb-6">
+                        <button className="text-sm font-medium hover:text-stone-300">Log In</button>
+                        <button className="bg-neutral-500 rounded-[30px] px-10 py-2 text-sm font-medium hover:bg-neutral-400 cursor-pointer">
+                            Join Titan
+                        </button>
+                    </div>
+                </header>
 
-            {/* Main Content Area */}
-            <main className="max-w-[1400px] mx-auto px-6 pt-24 pb-32 space-y-32">
+                {/* Recreating the specific split horizontal line from your Figma design */}
+                <SplitHorizontalLine />
 
-                {/* 1. Hero Section */}
-                <section className="flex flex-col xl:flex-row justify-between items-start gap-16 relative">
-                    <div className="max-w-3xl space-y-12">
-                        <h1 className="text-5xl md:text-7xl font-normal leading-tight">
+                {/* --- HERO SECTION --- */}
+                <section className="flex flex-col xl:flex-row relative px-12 py-24 gap-12">
+                    <div className="flex-1 flex flex-col justify-center space-y-12">
+                        <h1 className="text-5xl md:text-[50px] font-normal leading-tight">
                             The Wealth Advisor for <br className="hidden md:block" />
                             high-stakes financial <br className="hidden md:block" />
                             decisions
                         </h1>
                         <div className="flex flex-wrap items-center gap-6">
-                            <button className="bg-gradient-to-b from-white to-stone-300 text-black px-8 py-4 rounded-full text-xs font-bold tracking-wider hover:opacity-90 transition-opacity">
+                            <button className="bg-linear-to-b from-white to-stone-300 text-black w-44 h-11 rounded-[35px] text-[10px] font-medium tracking-wider outline outline-neutral-500 hover:opacity-90 transition-opacity">
                                 GET STARTED &rarr;
                             </button>
-                            <button className="border border-neutral-500 text-white px-8 py-4 rounded-full text-xs font-bold tracking-wider hover:bg-white/10 transition-colors">
+                            <button className="outline-[0.5px] outline-neutral-500 text-white w-44 h-11 rounded-[35px] text-[10px] font-medium tracking-wider hover:bg-white/5 transition-colors">
                                 SEE WHY &rarr;
                             </button>
                         </div>
                     </div>
-                    {/* Placeholder for the empty absolute div from Figma */}
-                    <div className="w-full xl:w-96 h-96 bg-neutral-800 rounded-[30px]" aria-label="Hero graphic placeholder" />
+                    <div className="hidden xl:block absolute left-1/2 top-0 bottom-0">
+                        <VerticalLine />
+                    </div>
+                    <div className="w-full mr-10 xl:w-96 h-96 bg-neutral-800/50 rounded-lg" />
                 </section>
 
-                {/* 2. Sub-Hero & Stats */}
-                <section className="border-t border-neutral-600/40 pt-16">
-                    <div className="flex flex-col xl:flex-row justify-between gap-16">
-                        <p className="text-lg md:text-xl font-medium text-stone-200 max-w-2xl leading-relaxed">
-                            Titan helps you navigate equity decisions, liquidity events, and career transitions - with a dedicated human advisor and a modern platform.
+                <HorizontalLine />
+
+                {/* --- STATS SECTION --- */}
+                <section className="flex flex-col xl:flex-row px-12 py-24 gap-12 relative">
+                    <div className="flex-1 flex items-center">
+                        <p className="text-lg font-medium leading-relaxed max-w-xl text-stone-200">
+                            Titan helps you navigate equity decisions, liquidity events, and career
+                            transitions - with a dedicated human advisor and a modern platform.
                         </p>
-                        <div className="flex flex-wrap gap-12 xl:gap-24">
-                            <div>
-                                <p className="text-stone-300 text-lg font-medium mb-3">Assets Under Management</p>
-                                <p className="text-4xl font-medium tracking-widest">$1.1B</p>
-                            </div>
-                            <div>
-                                <p className="text-stone-300 text-lg font-medium mb-3">All-in Advisory Fee</p>
-                                <p className="text-4xl font-medium tracking-widest">0.4%</p>
-                            </div>
-                            <div>
-                                <p className="text-stone-300 text-lg font-medium mb-3">Flat Fee</p>
-                                <p className="text-4xl font-medium">$0</p>
-                            </div>
+                    </div>
+
+                    {/* Inner disconnected vertical line for larger screens */}
+                    <div className="hidden xl:block absolute left-1/2 top-0 bottom-0">
+                        <VerticalLine />
+                    </div>
+
+                    <div className="flex-1 flex flex-wrap md:flex-nowrap gap-12 items-center justify-between">
+                        <div className="flex flex-col">
+                            <p className="text-stone-400 text-lg font-medium mb-2">Assets Under Management</p>
+                            <p className="text-4xl font-medium tracking-[10.8px]"><span className="tracking-normal">$</span>1.1B</p>
+                        </div>
+
+                        <div className="hidden md:block h-24"><VerticalLine /></div>
+
+                        <div className="flex flex-col">
+                            <p className="text-stone-400 text-lg font-medium mb-2">All-in Advisory Fee</p>
+                            <p className="text-4xl font-medium tracking-[7.2px]">0.4%</p>
+                        </div>
+
+                        <div className="hidden md:block h-24"><VerticalLine /></div>
+
+                        <div className="flex flex-col">
+                            <p className="text-stone-400 text-lg font-medium mb-2">Flat Fee</p>
+                            <p className="text-4xl font-medium">$0</p>
                         </div>
                     </div>
                 </section>
 
-                {/* 3. Cards Section */}
-                <section className="space-y-12 border-t border-neutral-600/40 pt-16">
+                <HorizontalLine />
+
+                {/* --- CARDS SECTION --- */}
+                <section className="px-12 py-24 space-y-12 relative">
                     <h2 className="text-4xl font-medium">Titan matters most for high-stakes decisions</h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
                         {[1, 2, 3].map((item) => (
-                            <div key={item} className="bg-white/10 hover:bg-white/15 transition-colors h-48 rounded-[30px] p-8 flex items-start cursor-pointer">
+                            <div key={item} className="bg-white/30 rounded-[30px] h-48 p-8 flex flex-col justify-start hover:bg-white/40 transition-colors cursor-pointer">
                                 <h3 className="text-xl font-medium leading-snug">
                                     Equity compensation <br /> becomes real money &rarr;
                                 </h3>
@@ -82,43 +128,51 @@ export default function Hero() {
                     </div>
                 </section>
 
-                {/* 4. Value Add Section */}
-                <section className="space-y-16 border-t border-neutral-600/40 pt-16">
+                <HorizontalLine />
+
+                {/* --- VALUE ADD SECTION --- */}
+                <section className="px-12 py-24 space-y-16">
                     <h2 className="text-4xl font-medium">How we add value</h2>
-                    <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-start border-b border-neutral-600/40 pb-16">
-                        <div className="md:col-span-1">
-                            <span className="flex items-center justify-center w-12 h-10 border border-stone-300 rounded-[10px] text-xl font-medium">
-                                1
-                            </span>
+                    <div className="flex flex-col md:flex-row gap-8 items-start">
+                        <div className="w-24 h-9 flex items-center justify-center rounded-[10px] outline outline-[0.2px] outline-stone-300">
+                            <span className="text-xl font-medium">1</span>
                         </div>
-                        <div className="md:col-span-4">
-                            <h3 className="text-2xl font-medium mt-1">See what’s at stake</h3>
+                        <div className="md:w-1/3">
+                            <h3 className="text-xl font-medium mt-1">See what’s at stake</h3>
                         </div>
-                        <div className="md:col-span-7">
-                            <p className="text-base text-stone-200 leading-relaxed font-medium">
+                        <div className="md:w-1/2">
+                            <p className="text-base font-medium leading-relaxed text-stone-200">
                                 We haven’t come prepared. Before any decision is made, we build a
-                                complete view of your financial picture - equity exposure, taxes,
-                                liquidity, and upcoming deadlines - so critical items aren’t missed.
+                                complete view of your financial picture - equity exposure,
+                                taxes, liquidity, and upcoming deadlines - so critical items
+                                aren’t missed.
                             </p>
                         </div>
                     </div>
                 </section>
 
-                {/* 5. Bottom CTA Section */}
-                <section className="border border-stone-300/30 rounded-[20px] p-12 md:p-24 flex flex-col md:flex-row items-center justify-between gap-12 bg-zinc-800/20">
-                    <div className="space-y-12 max-w-xl">
-                        <h2 className="text-4xl md:text-5xl font-medium leading-tight">
-                            Get tactical guidance from a <br className="hidden md:block" /> Titan advisor
-                        </h2>
-                        <button className="bg-gradient-to-b from-white to-stone-300 text-black px-8 py-4 rounded-full text-xs font-bold tracking-wider hover:opacity-90 transition-opacity">
-                            TALK TO AN ADVISOR &rarr;
-                        </button>
-                    </div>
-                    {/* Placeholder for the empty graphic block */}
-                    <div className="w-full md:w-72 h-72 bg-neutral-800 rounded-3xl" aria-label="CTA graphic placeholder" />
-                </section>
+                {/* --- CTA SECTION --- */}
+                <div className="px-12 pb-24 pt-12">
+                    <section className="w-full rounded-[20px] outline outline-[0.2px] outline-stone-300 overflow-hidden flex flex-col md:flex-row relative">
+                        <div className="flex-1 p-16 md:p-24 space-y-16 flex flex-col justify-center">
+                            <h2 className="text-4xl font-medium leading-tight">
+                                Get tactical guidance from a <br className="hidden lg:block" /> Titan advisor
+                            </h2>
+                            <button className="bg-gradient-to-b from-white to-stone-300 text-black w-44 h-11 rounded-[35px] text-[10px] font-medium tracking-wider outline outline-1 outline-neutral-500 hover:opacity-90 transition-opacity">
+                                TALK TO AN ADVISOR &rarr;
+                            </button>
+                        </div>
 
-            </main>
+                        {/* Inner Disconnected Line for CTA */}
+                        <div className="hidden md:block absolute left-[60%] top-8 bottom-8">
+                            <VerticalLine />
+                        </div>
+
+                        <div className="hidden md:block w-[40%] bg-zinc-800/30"></div>
+                    </section>
+                </div>
+
+            </div>
         </div>
     );
 }
