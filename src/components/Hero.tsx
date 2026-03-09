@@ -144,7 +144,7 @@ export default function Hero() {
                             </a>
 
                             <a className="inline-flex items-center justify-center px-6 py-3 mt-4 text-lg font-bold text-gray-900 border-2 border-gray-400 sm:mt-0 rounded-xl hover:bg-gray-900 hover:text-white">
-                                Watch free demo
+                                Watch demo
                             </a>
                         </div>
 
