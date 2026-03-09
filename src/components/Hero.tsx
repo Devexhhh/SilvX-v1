@@ -83,7 +83,7 @@ export default function Hero() {
                         {/* Desktop CTA */}
                         <div className="hidden lg:ml-auto lg:flex lg:items-center lg:space-x-10">
                             <a className="text-base font-medium text-gray-900 hover:text-opacity-50">
-                                Customer Login
+                                Customer login
                             </a>
 
                             <a className="inline-flex items-center justify-center px-6 py-3 text-base font-bold text-white bg-gray-900 rounded-xl hover:bg-gray-600">
