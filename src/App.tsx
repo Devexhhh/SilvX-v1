@@ -1,5 +1,4 @@
 import Hero from "./components/Hero";
-import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -7,7 +6,6 @@ function App() {
       <main className="grow">
         <Hero />
       </main>
-      <Footer />
     </div>
   );
 }
