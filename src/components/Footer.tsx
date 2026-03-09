@@ -14,7 +14,7 @@ export default function Footer() {
 
                         <p className="text-base leading-relaxed text-gray-600 mt-7">
                             Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-                            amet sint. Velit officia consequat duis enim velit mollit dolor.
+                            amet sint. Velit official consequat duis enim velit mollit dolor.
                         </p>
 
                         {/* Social icons */}
