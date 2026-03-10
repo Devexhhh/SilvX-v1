@@ -1,17 +1,18 @@
-import React from "react";
-
 export default function ValueSection() {
     return (
-        <section className="px-12 py-24 space-y-16">
+        <section className="px-8 py-6 space-y-16">
 
             <h2 className="text-4xl font-medium">
                 How we add value
             </h2>
+            <div className="h-[0.2px] w-full">
+                <div className="h-full w-full bg-zinc-500/50" />
+            </div>
 
             <div className="flex flex-col md:flex-row gap-8 items-start">
 
-                <div className="w-24 h-9 flex items-center justify-center rounded-[10px] outline outline-[0.2px] outline-stone-300">
-                    <span className="text-xl font-medium">1</span>
+                <div className="w-24 h-9 flex items-center justify-start rounded-[10px] border border-zinc-500">
+                    <span className="text-xl font-medium px-4">1</span>
                 </div>
 
                 <div className="md:w-1/3">
