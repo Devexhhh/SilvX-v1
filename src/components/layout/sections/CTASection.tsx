@@ -5,7 +5,7 @@ export default function CTASection() {
     return (
         <div className="px-12 pb-24 pt-12">
 
-            <section className="w-full rounded-[20px] outline outline-[0.2px] outline-stone-300 overflow-hidden flex flex-col md:flex-row relative">
+            <section className="w-full rounded-[20px] border border-zinc-600 overflow-hidden flex flex-col md:flex-row relative">
 
                 <div className="flex-1 p-16 md:p-24 space-y-16 flex flex-col justify-center">
 
@@ -15,7 +15,7 @@ export default function CTASection() {
                         Titan advisor
                     </h2>
 
-                    <button className="bg-gradient-to-b from-white to-stone-300 text-black w-44 h-11 rounded-[35px] text-[10px] font-medium tracking-wider outline outline-1 outline-neutral-500">
+                    <button className="bg-linear-to-b from-white to-stone-300 text-black w-44 h-11 rounded-[35px] text-[12px] font-semibold cursor-pointer tracking-tighter outline-1 outline-neutral-500">
                         TALK TO AN ADVISOR →
                     </button>
 
