@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function HorizontalLine() {
     return (
         <div className="h-[0.2px] w-full px-6 py-0">
