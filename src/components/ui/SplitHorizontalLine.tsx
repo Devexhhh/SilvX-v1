@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function SplitHorizontalLine() {
     return (
         <div className="flex items-center gap-8 px-5 w-full h-[0.2px]">
